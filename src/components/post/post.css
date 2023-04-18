@@ -1,0 +1,32 @@
+.card {
+    box-shadow: 0rem 0.5rem 0.5rem rgba(0 0 0 / 0.2);
+    border-image-source: radial-gradient(at top left, var(--accent-color), 20%, transparent);
+    border-image-slice: 1;
+    border-width: 0.125rem;
+    border-style: solid;
+    padding: 1rem;
+}
+
+.post-info {
+    display: flex;
+    justify-content: space-between;
+    color: var(--accent-color) ;
+    font-weight: bold;
+    align-items: center;
+}
+
+.author {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.post-info > button {
+    background-color: transparent;
+    border: 0.125rem solid var(--accent-color) ;
+    color: var(--accent-color) ;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0.5em 1em;
+    border-radius: 0.7rem;
+    height: max-content;
+}

@@ -1,38 +1,86 @@
+:root {
+  --accent-color: #cc00ff;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-areas: 
+    "header header"
+    "register create-post"
+    "login posts"
+    "logout posts";
+  height: 100vh;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: min-content 1fr 2fr 3fr;
+  column-gap: 2rem;
+  padding: 1rem 2rem;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  box-sizing: border-box;
+}
+
+form[data-name="Register"] {
+  grid-area: register;
+}
+
+form[data-name="Login"] {
+  grid-area: login;
+}
+
+form[data-name="Create post"] {
+  grid-area: create-post;
+}
+
+.logout-btn {
+  grid-area: logout;
+}
+
+main {
+  grid-area: posts;
+}
+
+header {
+  display: flex;
+  grid-area: header;
+  align-items: center;
+}
+
+header > p {
+  border-bottom: 0.1875rem dotted var(--accent-color);
+  padding-inline: 0.25rem;
+}
+
+header > h1 {
+  font-size: 1.7rem;
+  margin-inline: auto;
+  background: linear-gradient(to right, var(--accent-color) 0%, black 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logout-btn {
+  align-self: end;
+  border: none;
+  background-color: var(--accent-color);
+  cursor: pointer;
   color: white;
+  font-weight: bold;
+  padding: 1em 2em;
+  border-radius: 1rem;
+  max-width: fit-content;
+  margin-inline: auto;
+  transition: opacity 150ms ease-in-out;
 }
 
-.App-link {
-  color: #61dafb;
+.logout-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+main {
+  overflow-y: auto;
+  align-self: start;
+  max-height: 100%;
+  display: grid;
+  row-gap: 2rem;
+  padding: 0.5rem;
 }
